@@ -1,0 +1,22 @@
+<div class="w-full min-h-screen bg-gradient-to-b from-blue-800 to-purple-300 flex flex-col items-center pt-36">
+    <h1 class="font-bold text-7xl text-blue-200">Shipping-Rails</h1>
+    <p class="text-2xl bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-green-500 via-30% to-yellow-500 mt-2">La mejor plataforma para agilizar tus envíos y tu logísitca!</p>
+    <div class="h-36 flex items-center justify-center">
+        <%= link_to new_user_registration_path do %>
+        <%= image_tag "truck.png", class: "w-20 object-cover hover:bg-pink-500 rounded-full overflow-hidden duration-300	" %>
+        <% end %>
+    </div>
+    <div class="grid grid-cols-3 gap-8 max-w-5xl w-full mx-auto">
+        <%
+=begin%>
+        <%= image_tag "violin.jpg", class: "h-96 w-full object-cover" %>
+        <%= image_tag "dj.jpg", class: "h-96 w-full object-cover" %>
+        <%= image_tag "lady.jpg", class: "h-96 w-full object-cover" %>
+        <%
+=end%>
+    </div>
+
+    <br />
+
+    <%= link_to "Sign up in Shipping", new_user_registration_path, class: "inline-block bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:shadow-lg transform transition-all duration-300 hover:-translate-y-1 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-700 mb-4" %>
+</div>

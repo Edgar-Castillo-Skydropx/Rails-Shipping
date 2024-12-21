@@ -5,17 +5,16 @@ export default class extends Controller {
   static targets = ["menu"];
 
   toggle(e) {
-    console.log(this.menuTarget);
     e.preventDefault();
-    //this.menuTarget.classList.toggle("hidden");
+    this.menuTarget.classList.toggle("hidden");
   }
 
   closeIfOutside(e) {
-    console.log(this.menuTarget);
-    // if (!this.element.contains(e.target)) {
-    //   if (!this.menuTarget.classList.contains("hidden")) {
-    //     this.menuTarget.classList.add("hidden");
-    //   }
-    // }
+    if (
+      !this.element.contains(e.target) &&
+      !this.menuTarget.classList.contains("hidden")
+    ) {
+      this.menuTarget.classList.add("hidden");
+    }
   }
 }

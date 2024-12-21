@@ -22,7 +22,7 @@
 <body>
     <main class="bg-gradient-to-b from-blue-800 to-purple-300">
         <%= render "layouts/navbar" if current_user %>
-        <%= render "layouts/alerts" %>
+        <%= render(Alerts::AlertsComponent.new(notice, alert)) %>
         <%= yield %>
     </main>
 </body>

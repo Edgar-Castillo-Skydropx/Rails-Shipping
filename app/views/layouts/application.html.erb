@@ -19,11 +19,13 @@
     <%= javascript_importmap_tags %>
 </head>
 
-<body>
-    <main class="bg-gradient-to-b from-blue-800 to-purple-300">
+<body class="bg-gradient-to-b from-blue-800 to-purple-300 bg-no-repeat">
+    <main>
         <%= render(Navbar::NavbarComponent.new(current_user)) %>
         <%= render(Alerts::AlertsComponent.new(notice, alert)) %>
-        <%= yield %>
+        <div class="<%= 'pt-36' if current_user %>">
+            <%= yield %>
+        </div>
     </main>
 </body>
 

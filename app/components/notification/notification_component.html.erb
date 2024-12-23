@@ -1,0 +1,23 @@
+<div class="relative" data-controller="notification" data-action="click@window->notification#closeIfOutside">
+    <button data-action="notification#toggle" class="p-2 text-white">
+        <!-- Icono de notificación -->
+        <%= image_tag "notifications.png", class: "w-12 object-cover hover:bg-gray-500 rounded-full overflow-hidden duration-300 p-2" %>
+    </button>
+
+    <!-- Dropdown de notificaciones -->
+    <div class="absolute right-0 mt-2 w-60 bg-white border border-gray-300 rounded-lg shadow-lg hidden flex-col" data-notification-target="listdown">
+        <h3 class="text-lg font-semibold text-gray-800 p-2">Últimas notificaciones</h3>
+        <% notifications.each do |notification| %>
+        <div class="px-4 py-2 border-b">
+            <%= notification.title %>
+            <p class="text-xs text-gray-500"><%= time_ago_in_words(notification.created_at) %> ago</p>
+        </div>
+        <% end %>
+        <% if notifications.empty? %>
+        <div class="px-4 py-2 text-gray-500">No tienes nuevas notificaciones.</div>
+        <% end %>
+        <div class="p-2 text-center">
+            <%= link_to "Ver todas", notifications_path, class: "text-blue-500 text-sm" %>
+        </div>
+    </div>
+</div>

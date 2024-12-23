@@ -1,0 +1,25 @@
+<div id="<%= dom_id(notification) %>" class="p-2 bg-white-trans p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 mb-4">
+    <h3 class="text-xl font-semibold text-gray-800 mb-3 ">
+        <i class="fa fa-info-circle"></i>
+        <%= notification.title %>
+    </h3>
+
+    <p class="text-gray-600 mb-3">
+        <strong class="font-medium text-gray-800">Content:</strong>
+        <%= notification.content %>
+    </p>
+
+    <p class="text-gray-600 mb-3">
+        <strong class="font-medium text-gray-800">Type:</strong>
+        <%= notification.type_to %>
+    </p>
+
+    <p class="text-gray-600 mb-3">
+        <strong class="font-medium text-gray-800">User ID:</strong>
+        <%= notification.user_id %>
+    </p>
+
+    <div class="mt-4">
+        <%= link_to "Show this notification", notification, class: "inline-block bg-blue-500 text-white py-2 px-4 rounded-lg text-sm hover:bg-blue-600 transition-colors duration-200" %>
+    </div>
+</div>

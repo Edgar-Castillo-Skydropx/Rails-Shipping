@@ -3,6 +3,7 @@
 class Notification::NotificationComponent < ViewComponent::Base
   def initialize(current_user)
     @current_user = current_user
+    @notifications = notifications
   end
 
   def notifications

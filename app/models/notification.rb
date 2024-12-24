@@ -9,9 +9,8 @@ class Notification < ApplicationRecord
     NotificationBroadcastService.broadcast_append_to(
       :notifications_channel, "notifications_list", "notifications/notification", { notification: self })
 
-      NotificationBroadcastService.broadcast_prepend_to(
+    NotificationBroadcastService.broadcast_prepend_to(
       :notifications_menu, "notifications_tag", "notifications/notification", { notification: self, isMenu: true })
-
   end
 
   def broadcast_destroy

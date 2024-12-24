@@ -11,11 +11,7 @@ class NotificationBroadcastService
       partial: partial, locals: locals)
   end
 
-  def self.broadcast_toast(notification)
-    html = ApplicationController.renderer.render(
-      partial: "notifications/toast", locals: { notification: notification }
-    )
-
+  def self.broadcast_toast(html)
     Turbo::StreamsChannel.broadcast_append_to(
       :toast_notifications, target: "toast_notifications_container", html: html
     )

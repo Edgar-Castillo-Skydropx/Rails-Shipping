@@ -1,3 +1,9 @@
+<% if defined?(isMenu) && isMenu %>
+<div id="<%= dom_id(notification) %>-menu" class="px-4 py-2 border-b">
+    <%= notification.title %>
+    <p class="text-xs text-gray-500"><%= time_ago_in_words(notification.created_at) %> ago</p>
+</div>
+<% else %>
 <div id="<%= dom_id(notification) %>" class="col-span-1 p-2 bg-white-trans p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 mb-4">
     <h3 class="text-xl font-semibold text-gray-800 mb-3 ">
         <i class="fa fa-info-circle"></i>
@@ -23,3 +29,4 @@
         <%= link_to "Show this notification", notification, class: "inline-block bg-blue-500 text-white py-2 px-4 rounded-lg text-sm hover:bg-blue-600 transition-colors duration-200" %>
     </div>
 </div>
+<% end %>

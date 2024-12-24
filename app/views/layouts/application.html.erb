@@ -23,7 +23,7 @@
     <main>
         <%= render(Navbar::NavbarComponent.new(current_user)) %>
         <%= render(Alerts::AlertsComponent.new(notice, alert)) %>
-        <%= turbo_stream_from :notifications_channel %>
+        <%= turbo_stream_from :notifications_menu %>
         <%= render( Notification::ToastComponent.new) %>
         <div class="pt-36">
             <%= yield %>

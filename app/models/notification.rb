@@ -9,9 +9,14 @@ class Notification < ApplicationRecord
     Turbo::StreamsChannel.broadcast_append_to(
       :notifications_channel, target: "notifications_list",
       partial: "notifications/notification", locals: { notification: self })
+
+      Turbo::StreamsChannel.broadcast_prepend_to(
+      :notifications_menu, target: "notifications_tag",
+      partial: "notifications/notification", locals: { notification: self, isMenu: true })
   end
 
   def broadcast_destroy
     Turbo::StreamsChannel.broadcast_remove_to :notifications_channel, target: dom_id(self)
+    Turbo::StreamsChannel.broadcast_remove_to :notifications_menu, target: "#{dom_id(self)}-menu"
   end
 end

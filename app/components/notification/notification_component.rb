@@ -7,6 +7,6 @@ class Notification::NotificationComponent < ViewComponent::Base
   end
 
   def notifications
-    @current_user.notifications.order(created_at: :desc).limit(10)
+    Notification.order(created_at: :desc).limit(10)
   end
 end

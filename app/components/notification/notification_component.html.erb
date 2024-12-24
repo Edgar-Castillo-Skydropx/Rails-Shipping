@@ -5,7 +5,7 @@
     </button>
 
     <!-- Dropdown de notificaciones -->
-    <div class="absolute right-0 mt-2 w-60 bg-white border border-gray-300 rounded-lg shadow-lg hidden flex-col" data-notification-target="listdown">
+    <div id="notifications_list" class="absolute right-0 mt-2 w-60 bg-white border border-gray-300 rounded-lg shadow-lg hidden flex-col" data-notification-target="listdown">
         <h3 class="text-lg font-semibold text-gray-800 p-2">Últimas notificaciones</h3>
         <% notifications.each do |notification| %>
         <div class="px-4 py-2 border-b">

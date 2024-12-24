@@ -1,0 +1,5 @@
+<%= turbo_stream.append :notifications_list do %>
+  <%= render partial: "notifications/notification", locals: { notification: notification } %>
+<% end %>
+
+<%= turbo_stream_action_tag "dispatch_event", target: "body", event: { name: "notification:received", detail: { title: notification.title, body: notification.content, createdAt: notification.created_at } } %>

@@ -1,18 +1,16 @@
-<div class="w-full -mt-14 px-6 py-6">
-    <% content_for :title, "Notifications" %>
+ <%= turbo_stream_from "notifications_channel" %>
 
-    <div class="flex justify-between items-center mb-6">
-        <h1 class="font-bold text-4xl text-white drop-shadow-md">Notifications</h1>
-        <%= link_to new_notification_path, class: "rounded-lg py-3 px-5 bg-gray-300 bg-opacity-30 text-white block font-medium flex items-center gap-2" do %>
-        <i class="fas fa-plus"></i> Add notification
-        <% end %>
-    </div>
+ <div class="w-full -mt-14 px-6 py-6">
+     <% content_for :title, "Notifications" %>
 
-    <div id="notifications" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        <% @notifications.each do |notification| %>
-        <div class="col-span-1">
-            <%= render notification %>
-        </div>
-        <% end %>
-    </div>
-</div>
+     <div class="flex justify-between items-center mb-6">
+         <h1 class="font-bold text-4xl text-white drop-shadow-md">Notifications</h1>
+         <%= link_to new_notification_path, class: "rounded-lg py-3 px-5 bg-gray-300 bg-opacity-30 text-white block font-medium flex items-center gap-2" do %>
+         <i class="fas fa-plus"></i> Add notification
+         <% end %>
+     </div>
+
+     <div id="notifications_list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+         <%= render @notifications %>
+     </div>
+ </div>

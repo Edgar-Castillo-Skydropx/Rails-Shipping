@@ -21,13 +21,13 @@
 
 <body class="bg-gradient-to-b from-blue-800 to-purple-300 bg-no-repeat">
     <main>
+        <%= turbo_stream_from :notifications_menu %>
         <%= render(Navbar::NavbarComponent.new(current_user)) %>
         <%= render(Alerts::AlertsComponent.new(notice, alert)) %>
-        <%= turbo_stream_from :notifications_menu %>
-        <%= render( Notification::ToastComponent.new) %>
         <div class="pt-36">
             <%= yield %>
         </div>
+        <div id="toast_notifications_container"></div>
     </main>
 </body>
 

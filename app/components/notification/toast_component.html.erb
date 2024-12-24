@@ -1,4 +1,4 @@
-<div data-controller="toast" class="hidden fixed bottom-5 right-5 w-72 bg-white border border-gray-300 rounded-lg shadow-lg p-4 flex items-start gap-3 animate-fade-in">
+<div id="toast_<%= @notification.id %>" class="fixed bottom-5 right-5 w-72 bg-white border border-gray-300 rounded-lg shadow-lg p-4 flex items-start gap-3 animate-fade-in" data-controller="toast" data-action="toast#removeAfterDelay">
     <div class="flex-shrink-0">
         <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-600">
@@ -6,9 +6,9 @@
             </svg>
         </div>
     </div>
-    <div data-toast-target="container">
-        <h4 class="text-sm font-semibold text-gray-800" data-toast-target="title"></h4>
-        <p class="text-sm text-gray-600" data-toast-target="body"></p>
-        <p class="text-xs text-gray-400 mt-1" data-toast-target="created_at"></p>
+    <div>
+        <h4 class="text-sm font-semibold text-gray-800"><%= @notification.title %></h4>
+        <p class="text-sm text-gray-600"><%= @notification.body %>...</p>
+        <p class="text-xs text-gray-400 mt-1"><%= time_ago_in_words(@notification.created_at) %> ago</p>
     </div>
 </div>

@@ -6,17 +6,16 @@ class Notification < ApplicationRecord
   after_destroy_commit :broadcast_destroy
 
   def publish_notification
-    Turbo::StreamsChannel.broadcast_append_to(
-      :notifications_channel, target: "notifications_list",
-      partial: "notifications/notification", locals: { notification: self })
+    NotificationBroadcastService.broadcast_append_to(
+      :notifications_channel, "notifications_list", "notifications/notification", { notification: self })
 
-      Turbo::StreamsChannel.broadcast_prepend_to(
-      :notifications_menu, target: "notifications_tag",
-      partial: "notifications/notification", locals: { notification: self, isMenu: true })
+      NotificationBroadcastService.broadcast_prepend_to(
+      :notifications_menu, "notifications_tag", "notifications/notification", { notification: self, isMenu: true })
+
   end
 
   def broadcast_destroy
-    Turbo::StreamsChannel.broadcast_remove_to :notifications_channel, target: dom_id(self)
-    Turbo::StreamsChannel.broadcast_remove_to :notifications_menu, target: "#{dom_id(self)}-menu"
+    NotificationBroadcastService.broadcast_remove_to(:notifications_channel, dom_id(self))
+    NotificationBroadcastService.broadcast_remove_to(:notifications_menu, "#{dom_id(self)}-menu")
   end
 end

@@ -24,16 +24,21 @@ export default class extends Controller {
     // Actualizar el contenido del diálogo
     this.dialogContentTarget.innerHTML = `
       <p><strong>Título:</strong> ${notificationData.title}</p>
-      <p><strong>Mensaje:</strong> ${notificationData.body}</p>
+      <p><strong>Mensaje:</strong> ${notificationData.content}</p>
       <p><strong>Fecha:</strong> ${notificationData.created_at}</p>
     `;
 
-    // Mostrar el diálogo con transiciones
-    this.dialogTarget.classList.remove("hidden", "opacity-0");
-    this.dialogTarget.classList.add("opacity-100");
+    // Mostrar el diálogo
+    this.dialogTarget.classList.remove("hidden");
 
-    this.dialogBoxTarget.classList.remove("scale-95");
-    this.dialogBoxTarget.classList.add("scale-100");
+    // Forzar una pintura del navegador antes de aplicar clases de entrada
+    requestAnimationFrame(() => {
+      this.dialogTarget.classList.remove("opacity-0");
+      this.dialogTarget.classList.add("opacity-100");
+
+      this.dialogBoxTarget.classList.remove("scale-95");
+      this.dialogBoxTarget.classList.add("scale-100");
+    });
   }
 
   closeDialog() {

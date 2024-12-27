@@ -30,3 +30,35 @@ Things you may want to cover:
 - rails generate devise user
 - rails g tailwind_devise:views
 - rails g migration AddUsernameToUsers username:string:uniq
+
+## ENV FILE
+
+```js
+PROJECT_NAME=shipping
+PROJECT_PORT=4000
+PORT=4000
+PROJECT_HOST=localhost
+PROJECT_MODE=development
+
+POSTGRES_DB=shipping
+POSTGRES_USER=root
+POSTGRES_ROL=root
+POSTGRES_PASSWORD=root
+POSTGRES_HOST=localhost
+POSTGRES_PORT=5432
+
+ADMIN_PASSWORD=$123$567$
+
+PGADMIN_DEFAULT_EMAIL=root@root.com
+PGADMIN_DEFAULT_PASSWORD=root
+PGADMIN_PORT=5050
+
+REDIS_URL=redis://default:root@localhost:6379
+REDIS_IS_SECURE=false
+REDIS_HOSTNAME=localhost
+REDIS_PORT=6379
+REDIS_PASSWORD=root
+REDIS_COMMANDER_USER=root
+REDIS_COMMANDER_PASSWORD=root
+REDIS_COMMANDER_PORT=8081
+```

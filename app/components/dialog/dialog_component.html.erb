@@ -1,18 +1,16 @@
-<div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50" data-controller="dialog">
-    <div class="bg-white rounded-lg shadow-lg max-w-lg w-full transform transition duration-300 scale-95" data-action="click@window->dialog#closeIfOutside">
+<div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden" data-notification-target="dialog">
+    <div class="bg-white rounded-lg shadow-lg max-w-lg w-full transform transition duration-300 scale-95">
         <!-- Header del Dialog -->
         <div class="flex justify-between items-center p-4 border-b">
-            <h2 class="text-lg font-bold text-gray-800"> <%= @data.header %> </h2>
-            <button class="text-gray-500 hover:text-gray-800" data-action="dialog#close">
+            <h2 class="text-lg font-bold text-gray-800">Detalles de la notificación</h2>
+            <button class="text-gray-500 hover:text-gray-800" data-action="notification#closeDialog">
                 &times;
             </button>
         </div>
 
         <!-- Contenido del Dialog -->
-        <div class="p-4 text-gray-700">
-            <p><strong>Título:</strong> <%= @data.title %></p>
-            <p><strong>Mensaje:</strong> <%= @data.content %></p>
-            <p><strong>Fecha:</strong> <%= @data.created_at.strftime("%d/%m/%Y %H:%M") %></p>
+        <div class="p-4 text-gray-700" data-notification-target="dialogContent">
+            <p class="text-center text-gray-500">Selecciona una notificación para ver los detalles.</p>
         </div>
     </div>
 </div>

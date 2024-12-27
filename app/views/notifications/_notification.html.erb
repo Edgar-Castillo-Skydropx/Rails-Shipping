@@ -1,5 +1,5 @@
 <% if defined?(isMenu) && isMenu %>
-<div id="<%= dom_id(notification) %>-menu" class="px-4 py-2 border-b hover:bg-gray-200 cursor-pointer transition duration-300" data-action="click->notification#openDialog" data-notification='<%= notification.to_json(only: [:id, :title, :content, :created_at]) %>'>
+<div id="<%= dom_id(notification) %>-menu" class="px-4 py-2 border-b hover:bg-gray-200 cursor-pointer transition duration-300" data-action="click->notification#openDialog" data-notification='{"id": <%= notification.id %>, "title": "<%= notification.title %>", "content": "<%= notification.content %>", "created_at": "<%= notification.created_at.strftime("%d/%m/%Y %H:%M") %>"}'>
     <%= notification.title %>
     <p class="text-xs text-gray-500"><%= time_ago_in_words(notification.created_at) %> ago</p>
 </div>

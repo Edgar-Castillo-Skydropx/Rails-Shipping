@@ -25,7 +25,7 @@
         <%= turbo_stream_from :notifications_menu %>
         <%= turbo_stream_from :toast_notifications %>
         <% end %>
-        <%= render(Navbar::NavbarComponent.new(current_user)) %>
+        <%= render(Navbar::NavbarComponent.new(current_user, recent_notifications)) %>
         <%= render(Alerts::AlertsComponent.new(notice, alert)) %>
         <div class="pt-36">
             <%= yield %>

@@ -20,7 +20,7 @@
                     <%= link_to "Sign out", destroy_user_session_path, class: "bg-red-500 text-red-50 p-2 rounded-lg", data: { turbo_method: :delete } %>
                 </div>
             </div>
-            <%= render(Notification::NotificationComponent.new(@current_user)) %>
+            <%= render(Notification::NotificationComponent.new(@current_user, @notifications)) %>
             <% else %>
             <%= link_to "Sign in", new_user_session_path, class: "text-white" %>
             <%= link_to "Create account", new_user_registration_path, class: "bg-gray-500 p-2 text-gray-50 rounded-lg" %>

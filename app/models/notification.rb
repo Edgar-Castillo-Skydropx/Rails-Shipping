@@ -6,8 +6,9 @@ class Notification < ApplicationRecord
   after_destroy_commit :broadcast_destroy
 
   def publish_notification
+    # broadcast_append_to
     BroadcastService.broadcast_to(
-      :broadcast_append_to, :notifications_channel,
+      :broadcast_prepend_to, :notifications_channel,
       target: "notifications_list", partial: "notifications/notification",
       locals: { notification: self })
 

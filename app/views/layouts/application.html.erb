@@ -21,8 +21,10 @@
 
 <body class="bg-gradient-to-b from-blue-800 to-purple-300 bg-no-repeat">
     <main>
+        <% if current_user %>
         <%= turbo_stream_from :notifications_menu %>
         <%= turbo_stream_from :toast_notifications %>
+        <% end %>
         <%= render(Navbar::NavbarComponent.new(current_user)) %>
         <%= render(Alerts::AlertsComponent.new(notice, alert)) %>
         <div class="pt-36">

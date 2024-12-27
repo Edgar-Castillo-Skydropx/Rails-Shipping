@@ -33,7 +33,7 @@ Things you may want to cover:
 
 ## ENV FILE
 
-```js
+```bash
 PROJECT_NAME=shipping
 PROJECT_PORT=4000
 PORT=4000

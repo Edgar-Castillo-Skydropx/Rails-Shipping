@@ -25,8 +25,10 @@
         <%= notification.user.email %>
     </p>
 
+    <% if !defined?(basic) || !basic %>
     <div class="mt-4">
         <%= link_to "Show this notification", notification, class: "inline-block bg-blue-500 text-white py-2 px-4 rounded-lg text-sm hover:bg-blue-600 transition-colors duration-200" %>
     </div>
+    <% end %>
 </div>
 <% end %>

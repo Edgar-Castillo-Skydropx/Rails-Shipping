@@ -4,11 +4,12 @@ Rails.application.routes.draw do
 
   scope :admin do
     authenticated do
-      resources :notifications
+      resources :notifications, except: [ :public_notifications, :show ]
     end
   end
   authenticated do
-    resources :notifications, only: [ :show, :index ]
+    resources :notifications, only: [ :show ]
+    get "public_notifications" => "notifications#public_notifications", as: :public_notifications
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

@@ -1,0 +1,13 @@
+ <div class="w-full -mt-14 px-6 py-6">
+     <% content_for :title, "Notifications" %>
+
+     <div class="flex justify-between items-center mb-6">
+         <h1 class="font-bold text-4xl text-white drop-shadow-md">Notifications</h1>
+     </div>
+
+     <%= turbo_stream_from :notifications_channel %>
+
+     <div id="notifications_list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+         <%= render partial: "notifications/notification", collection: @notifications, locals: { basic: true } %>
+     </div>
+ </div>

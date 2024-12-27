@@ -14,7 +14,7 @@
         <div class="px-4 py-2 text-gray-500">No tienes nuevas notificaciones.</div>
         <% end %>
         <div class="p-2 text-center">
-            <%= link_to "Ver todas", notifications_path, class: "text-blue-500 text-sm" %>
+            <%= link_to "Ver todas", public_notifications_path, class: "text-blue-500 text-sm" %>
         </div>
     </div>
     <%= render Dialog::DialogComponent.new("Detalles de la notificación") do %>

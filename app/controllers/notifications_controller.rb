@@ -6,6 +6,10 @@ class NotificationsController < ApplicationController
     @notifications = Notification.includes(:user).order(created_at: :desc)
   end
 
+  def public_notifications
+    @notifications = Notification.order(created_at: :desc)
+  end
+
   # GET /notifications/1 or /notifications/1.json
   def show
   end

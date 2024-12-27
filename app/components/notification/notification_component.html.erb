@@ -17,5 +17,9 @@
             <%= link_to "Ver todas", notifications_path, class: "text-blue-500 text-sm" %>
         </div>
     </div>
-    <%= render(Dialog::DialogComponent.new(nil)) %>
+    <%= render Dialog::DialogComponent.new("Detalles de la notificación") do %>
+    <div data-notification-target="dialogContent">
+        <p class="text-center text-gray-500">Selecciona una notificación para ver los detalles.</p>
+    </div>
+    <% end %>
 </div>

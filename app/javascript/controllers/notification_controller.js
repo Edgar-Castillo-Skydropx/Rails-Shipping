@@ -2,7 +2,16 @@ import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="notification"
 export default class extends Controller {
-  static targets = ["listdown", "dialog", "dialogContent", "dialogBox"];
+  static targets = ["listdown", "dialogContent"];
+  dialogController;
+
+  connect() {
+    this.dialogController =
+      this.application.getControllerForElementAndIdentifier(
+        document.querySelector("[data-controller='dialog']"),
+        "dialog"
+      );
+  }
 
   toggle(e) {
     e.preventDefault();
@@ -28,30 +37,7 @@ export default class extends Controller {
       <p><strong>Fecha:</strong> ${notificationData.created_at}</p>
     `;
 
-    // Mostrar el diálogo
-    this.dialogTarget.classList.remove("hidden");
-
-    // Forzar una pintura del navegador antes de aplicar clases de entrada
-    requestAnimationFrame(() => {
-      this.dialogTarget.classList.remove("opacity-0");
-      this.dialogTarget.classList.add("opacity-100");
-
-      this.dialogBoxTarget.classList.remove("scale-95");
-      this.dialogBoxTarget.classList.add("scale-100");
-    });
-  }
-
-  closeDialog() {
-    // Aplicar transiciones de salida
-    this.dialogTarget.classList.add("opacity-0");
-    this.dialogTarget.classList.remove("opacity-100");
-
-    this.dialogBoxTarget.classList.add("scale-95");
-    this.dialogBoxTarget.classList.remove("scale-100");
-
-    // Esconder el diálogo después de la transición
-    setTimeout(() => {
-      this.dialogTarget.classList.add("hidden");
-    }, 300); // Debe coincidir con `duration-300`
+    // Abrir el diálogo
+    this.dialogController?.open();
   }
 }

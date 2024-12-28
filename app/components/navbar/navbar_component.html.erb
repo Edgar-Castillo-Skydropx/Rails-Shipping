@@ -13,8 +13,12 @@
                 <% end %>
 
                 <div class="w-40 bg-gray-400 rounded-lg absolute top-10 hidden flex flex-col items-center justify-between p-2" data-dropdown-target="menu">
+                    <% if @current_user.isAdmin %>
                     <%= link_to "Notificaciones", notifications_path, class: "text-xl text-white" %>
                     <div class="w-full h-0.5 bg-white my-4"></div>
+                    <%= link_to "Users", users_path, class: "text-xl text-white" %>
+                    <div class="w-full h-0.5 bg-white my-4"></div>
+                    <% end %>
                     <%= link_to "Settings", edit_user_registration_path, class: "text-xl text-white" %>
                     <div class="w-full h-0.5 bg-white my-4"></div>
                     <%= link_to "Sign out", destroy_user_session_path, class: "bg-red-500 text-red-50 p-2 rounded-lg", data: { turbo_method: :delete } %>

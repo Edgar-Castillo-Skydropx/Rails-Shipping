@@ -1,4 +1,5 @@
 class NotificationsController < ApplicationController
+  before_action :require_admin!, except: %i[ public_notifications ]
   before_action :set_notification, only: %i[ show edit update destroy ]
 
   # GET /notifications or /notifications.json
@@ -65,7 +66,12 @@ class NotificationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_notification
-      @notification = current_user.notifications.find(params[:id])
+      begin
+        @notification = current_user.notifications.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        flash[:alert] = "The notification couldn't be found."
+        redirect_back(fallback_location: root_path)
+      end
     end
 
     # Only allow a list of trusted parameters through.

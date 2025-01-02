@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   scope :admin do
     authenticated do
-      resources :notifications, except: [ :public_notifications, :show ]
+      resources :notifications, except: [ :public_notifications ]
       resources :users
     end
   end

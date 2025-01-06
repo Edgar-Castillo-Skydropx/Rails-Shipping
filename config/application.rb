@@ -6,6 +6,9 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# require middleware files
+Dir["./app/middleware/*.rb"].sort.each { |file| require file }
+
 module Shipping
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -15,6 +18,7 @@ module Shipping
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
+    config.middleware.use AdminMiddleware
 
     # Configuration for the application, engines, and railties goes here.
     #

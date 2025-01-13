@@ -16,6 +16,8 @@
                     <% if @current_user.isAdmin %>
                     <%= link_to "Notificaciones", notifications_path, class: "text-xl text-white" %>
                     <div class="w-full h-0.5 bg-white my-4"></div>
+                    <%= link_to "Carriers", carriers_path, class: "text-xl text-white" %>
+                    <div class="w-full h-0.5 bg-white my-4"></div>
                     <%= link_to "Users", users_path, class: "text-xl text-white" %>
                     <div class="w-full h-0.5 bg-white my-4"></div>
                     <% end %>

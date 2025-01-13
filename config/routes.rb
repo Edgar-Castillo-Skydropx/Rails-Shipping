@@ -8,8 +8,10 @@ Rails.application.routes.draw do
     authenticated do
       resources :notifications, except: [ :public_notifications ]
       resources :users
+      resources :carriers
     end
   end
+
   authenticated do
     resources :notifications, only: [ :show ]
     get "public_notifications" => "notifications#public_notifications", as: :public_notifications

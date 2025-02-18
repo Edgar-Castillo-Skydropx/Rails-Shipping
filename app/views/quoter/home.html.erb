@@ -1,4 +1,6 @@
-<%= turbo_stream_from "carrier_quotation_#{gon.tab_uuid}" %>
+<% tab_uuid = SecureRandom.uuid %>
+
+<%= turbo_stream_from "carrier_quotation_#{tab_uuid}" %>
 
 <div class="w-full -mt-14 px-6 py-6">
     <% content_for :title, "Carriers" %>
@@ -6,7 +8,7 @@
     <div class="flex justify-between items-center mb-6">
         <h1 class="font-bold text-4xl text-white drop-shadow-md">Quoter</h1>
 
-        <%= button_to quotes_path, method: :post, remote: true, data: { turbo_stream: true, tab_uuid: gon.tab_uuid }, class: "rounded-lg py-3 px-5 bg-gray-300 bg-opacity-30 text-white block font-medium flex items-center gap-2" do %>
+        <%= button_to quotes_path(tab_uuid: tab_uuid), method: :post, remote: true, data: { turbo_stream: true }, class: "rounded-lg py-3 px-5 bg-gray-300 bg-opacity-30 text-white block font-medium flex items-center gap-2" do %>
         <i class="fa fa-dropbox"></i> Quote
         <% end %>
     </div>

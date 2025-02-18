@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   end
 
   authenticated do
+    root "quoter#home", as: :authenticated_root
+    post "quote" => "quoter#quote", as: :quotes
     resources :notifications, only: [ :show ]
     get "public_notifications" => "notifications#public_notifications", as: :public_notifications
   end

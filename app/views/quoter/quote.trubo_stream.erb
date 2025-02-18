@@ -1,0 +1,8 @@
+<turbo-stream action="update" target="carrier_quotation">
+  <template>
+    <div class="bg-gray-100 rounded-lg p-4">
+      <p><strong>Cotización generada:</strong></p>
+      <pre><%= @quotation.to_json %></pre>
+    </div>
+  </template>
+</turbo-stream>

@@ -65,3 +65,4 @@ group :test do
 end
 
 gem "view_component", "~> 3.21"
+gem "gon", "~> 6.4.0"
